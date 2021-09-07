@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+     <!-- bootstrap css -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+     <!-- bootstrap javascript -->
+
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
+
+
+
+
+   <link rel="stylesheet" href="styles.css"> </link>
+    <title>Meow </title>
+   
+</head>
+
+
+<body>
+    
+    <!--- Nabar-->
+    
+    <div id = "navbar">
+    <nav class="menu-container navbar" >
+        <!-- burger menu -->
+        <input type="checkbox" aria-label="Toggle menu" />
+        <span></span>
+        <span></span>
+        <span></span>
+      
+        <!-- logo -->
+        <!-- <a href="#" class="menu-logo">
+          <img src="data:image/png;base64,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" alt="Logo"/>
+        </a> -->
+      
+        <!-- menu items -->
+        <div class="menu ">
+          
+          <ul>
+            <li class="navbar-title-heading">
+                <h2 style="color:#333">IntelliED</h2>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="#Home" style="color:#333">
+               Home
+              </a>
+            </li>
+            <li>
+              <a href="#How" style="color:#333">
+                How it Works
+              </a>
+            </li>
+            <li>
+                <a href="#Why" style="color:#333">
+                 Why Us
+                </a>
+              </li>
+              <li>
+                <a href="#Support" style="color:#333">
+                 Support
+                </a>
+              </li>
+              <li>
+                <a href="#Contact" style="color:#333 ">
+                 Contact
+                </a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+
+      </div>
+
+        <!--- Hero Section -->
+        <div class="hero-banner">
+
+         <h1  class="hero-text">
+             Easy Data  <br/>
+             Management &  <br/>
+            Analytics for Schools.
+        </h1>
+        <img src="Img/banner.jpeg"  class="hero-banner-img"/>
+        </div>
+     <!--- How it works ?-->
+      <div class="expainDiv">
+          <!-- <span class="expainDiv-Text">
+
+             <b>IntelliED </b> is a cloud-based digital platform that enables K-12 schools to bring together students, educators, parents, and other stakeholders on a single platform to allow for easy sharing of data and resources. With IntelliED, schools can efficiently track academic progress, record daily attendance, provide important announcements, and share learning resources with anyone instantly.
+          </span>  -->
+
+          <div class="Heading-intellied">What is IntelliED?</div>
+
+
+
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+
+          <div class="content-intellied">
+            <div class="about-intellied">
+             <span class="subheading">IntelliED</span> is a light-weight digital platform that provides Easy Data Management Analytics for schools, allowing them to improve the efficiency of grading and reporting.
+            </div>
+            <div class="image-intellied">
+              <!-- <img class = "iphone-image" src = "Img/mockup.png" alt = "X-iphone"/> -->
+            </div>
+          </div>
+
+         <!-- <h1 class="explainDiv-Header">
+            How It Works
+         </h1> 
+         <div>
+             Bla bla text 
+         </div> -->
+      </div>
+    <!--- Video Section -->
+
+
+     <video muted loop autoplay >
+      <source src="Img/video.mp4" type="video/mp4">
+     </video>
+
+     <!---  Phone Section-->
+     <div  > 
+     <img src="Img/mobile.png" height="100%" width="100%"/>
+     <div class="BoxContainer">
+           
+        <div class="blueBox">
+          
+         Transform your institution’s  <br/> data  into  actionable insights <br/> to understand what variables <br/> make things happen.
+        </div>
+        <div class="blueBox">
+            Make smarter decisions <br/> earlier in the learning <br/> progression before a problem <br/> has the chance to become a <br/> serious issue.
+         </div> 
+     
+     </div>
+     </div>
+
+    <!-- Why to choose ? -->
+   <div class="why">
+    <h1 class="whyHeading">
+        Why Choose IntelliED?
+    </h1> 
+
+    <div class="desktop-section">
+      <div class="desktop-content">
+        <h1 class="desktop-heading">Automated
+          Reports</h1>
+
+          <p class="desktop-content">All you have to do is enter the data points and then our AI-ML models & Data Science frameworks will generate insights & reports automatically, saving time by eliminating the need to develop reports manually. With just a few clicks, you can share these reports with students, counsellors, parents & school admins.</p>
+      </div>
+      <div class="desktop-image-div">
+        <img class = "desktop-image-tag" src="Img/Desktop.png" alt = "Desktop"/>
+      </div>
+    </div>
+
+
+
+
+    <div class="Visualdata-section">
+      
+      <div class="Visualdata-div">
+        <img class = "Visualdata-image-tag" src="Img/Visualdata.png" alt = "Visualdata"/>
+      </div>
+
+      <div class="Visualdata-content">
+        <h1 class="Visualdata-heading">Data Driven Decision Making</h1>
+
+          <p class="Visualdata-content">Our Machine Learning & Analytics-based approach brings the most meaningful insights to the table so that you can provide  precise feedback & can make effective & timely interventions to support students struggling in the classroom, thereby promoting a data-driven decision-making environment.</p>
+      </div>
+    </div>
+
+
+
+    <div class="Resources-section">
+      <div class="Resources-content">
+        <h1 class="Resources-heading">Social Emotional Learning </h1>
+
+          <p class="Resources-content">Schools can offer our built-in Social-Emotional-Learning surveys & Psychometric tests to their students to ensure that their environments are safe, supportive, and equitable & can profile students based on their learning styles and personality types.
+          </p>
+      </div>
+      <div class="Resources-image-div">
+        <img class = "Resources-image-tag" src="https://static.wixstatic.com/media/e4f166_073f6ceacb47424698e2010b2b5a438f~mv2.png/v1/fill/w_1294,h_773,fp_0.50_0.50,q_90/e4f166_073f6ceacb47424698e2010b2b5a438f~mv2.webp" />
+      </div>
+    </div>
+
+
+
+
+    <div class="classroom-section">
+      
+      <div class="classroom-div">
+        <img class = "classroom-image-tag" src="https://static.wixstatic.com/media/e4f166_0b7fc71aff074af49e60d608cfca78ec~mv2.png/v1/fill/w_764,h_1080,fp_0.50_0.50,q_90/e4f166_0b7fc71aff074af49e60d608cfca78ec~mv2.webp"  alt = "Visualdata"/>
+      </div>
+
+      <div class="classroom-content">
+        <h1 class="classroom-heading">Better Classroom
+          Management</h1>
+
+          <p class="classroom-content">Efficiently track academic progress, record daily attendance, provide important announcements, and share learning resources with anyone instantly. IntelliED eliminates the use of paper, reduces human reporting errors, and streamlines your day-to-day administrative tasks.</p>
+      </div>
+    </div>
+
+    <button class="bookDemo" type="submit">Book A Demo</button>
+
+
+    
+    
+<!-- As Featured on-->
+<div class="featureSection container-fluid">
+       
+      <h1 class="feature" >
+        As Featured On 
+      </h1>
+     <span class="feature-content">I'm a paragraph. Click here to add your own text and edit me.    </span>
+     <div class="mediaHouse">
+         <img class="feature-image" src="https://static.wixstatic.com/media/e4f166_828d445fbf3c4f9abc9112f6e2f99055~mv2.png/v1/fill/w_481,h_279,fp_0.50_0.50,lg_1,q_85/e4f166_828d445fbf3c4f9abc9112f6e2f99055~mv2.webp" />
+         <img class="feature-image" src="https://static.wixstatic.com/media/e4f166_8093d7c26fad4d52a281031b37bfd46a~mv2.png/v1/fill/w_481,h_279,fp_0.50_0.50,lg_1,q_85/e4f166_8093d7c26fad4d52a281031b37bfd46a~mv2.webp" />
+         <img class="feature-image" src="https://static.wixstatic.com/media/e4f166_8093d7c26fad4d52a281031b37bfd46a~mv2.png/v1/fill/w_481,h_279,fp_0.50_0.50,lg_1,q_85/e4f166_8093d7c26fad4d52a281031b37bfd46a~mv2.webp" />
+
+    </div>
+     
+ </div>
+
+ <!---- What else we can do ?-->
+
+  <div class="whatElse">
+   <h1 >What else does IntelliED offer?</h1>
+   <span > Click here to enter more text</span>
+  </div>
+ <!----    --->
+ <div class="bannerImages">
+      <div class="bannerCard">
+          <img width="50%" height="50%" src="https://static.wixstatic.com/media/a6cfb4_9baba54be0d04902a4b2f4661082a781~mv2.png/v1/fill/w_372,h_372,al_c,q_85,usm_0.66_1.00_0.01/360%20degree.webp" />
+           <h1 class="bannerTextHeading"> 360 Degree Profiling </h1>
+           <span class="bannerTextImage">The software can be used to create unique profiles for students, based on their demographic details, assessment results and data gleaned from their interactions with education services.
+           </span>
+
+      </div>
+      <div class="bannerCard">
+        <img width="50%" height="50%" src="https://static.wixstatic.com/media/a6cfb4_b1b27e7724b4491d929deafa0df2f658~mv2.png/v1/fill/w_384,h_360,al_c,q_85,usm_0.66_1.00_0.01/Reports.webp" />
+         <h1 class="bannerTextHeading"> Automated & Personalized Reports </h1>
+         <span class="bannerTextImage"> The software can be used to create unique profiles for students, based on their demographic details, assessment results and data gleaned from their interactions with educa
+         </span>
+
+    </div>
+
+ </div>
+ <div class="bannerImages">
+    <div class="bannerCard">
+        <img width="50%" height="50%" src="https://static.wixstatic.com/media/a6cfb4_bf0823a241d94fcf9e67f0585806b67a~mv2.png/v1/crop/x_0,y_300,w_2000,h_1420/fill/w_464,h_324,al_c,q_85,usm_0.66_1.00_0.01/Advanced%20Analytics.webp" />
+         <h1 class="bannerTextHeading"> Advance Analytics </h1>
+         <span class="bannerTextImage"> Analytics allows to improve the education process by helping teachers to measure, monitor, and respond, in real-time to all the students related insights.
+         </span>
+
+    </div>
+    <div class="bannerCard">
+      <img width="50%" height="50%" src="https://static.wixstatic.com/media/a6cfb4_8df156b9ca4c47e68c2f13435cee078f~mv2.jpg/v1/crop/x_152,y_92,w_542,h_574/fill/w_270,h_284,al_c,q_80,usm_0.66_1.00_0.01/Mental%20WellNess_edited.webp" />
+       <h1 class="bannerTextHeading"> Mental Wellness & SELL </h1>
+       <span class="bannerTextImage"> Good mental health & social emotional learning is critical to children’s success in school and life. The wellness feature keeps a check on student’s mental health via questionnaires based on clinical standards.
+
+       </span>
+
+      </div>  
+
+</div>
+<!--- FAQ-->
+  <div class="faq">
+     .
+      <hr class="hr"/>
+      <div class="faqText">
+        FAQ
+      </div>
+      <div style="margin:5%">
+        <div class="bannerImages">
+            <div class="bannerCard">
+                <h2 class="bannerTextImage colorBlue" > 
+                    Is IntelliED hosted on client side servers or on IntelliED’s servers?</h2>
+                 <span class="bannerTextImageSmall colorWhite"> Analytics allows to improve the education process by helping teachers to measure, monitor, and respond, in real-time to all the students related insights.
+                 </span>
+        
+            </div>
+            <div class="bannerCard ">
+               <h2 class="bannerTextImageSmall colorBlue"> Do you provide client support for installation and maintenance? </h2>
+               <span class="bannerTextImageSmall colorWhite marginLeft"> At IntelliED, we provide free installation i.e. clients don’t have any installation cost. Secondly, you don’t have IT staff costs because firstly it’s very easy to maintain and even if something happens, we’ll take care of it for free. So, your maintenance costs are zero.
+    
+    
+                </span>
+        
+              </div>  
+             
+        
+           </div>
+      
+       <div class="bannerImages">
+        <div class="bannerCard">
+            <h2 class="bannerTextImage colorBlue" > 
+                Is IntelliED hosted on client side servers or on IntelliED’s servers?</h2>
+             <span class="bannerTextImageSmall colorWhite"> Analytics allows to improve the education process by helping teachers to measure, monitor, and respond, in real-time to all the students related insights.
+             </span>
+    
+        </div>
+        <div class="bannerCard ">
+           <h2 class="bannerTextImageSmall colorBlue"> Do you provide client support for installation and maintenance? </h2>
+           <span class="bannerTextImageSmall colorWhite marginLeft"> At IntelliED, we provide free installation i.e. clients don’t have any installation cost. Secondly, you don’t have IT staff costs because firstly it’s very easy to maintain and even if something happens, we’ll take care of it for free. So, your maintenance costs are zero.
+
+
+            </span>
+    
+          </div>  
+         
+    
+       </div>
+       </div>
+       .
+
+  </div>   
+  <!--- How can we help you ?-->
+  <div class="featureSection">
+       
+    <h1 class="helping-section">
+        What Can We Help You With?
+
+    </h1>
+   <span class="helping-section-sub"> For more info fill out the form or call us at 123-456-7890
+
+</span>
+</div>
+   
+   <!-- Faq class-->
+   <div class="faq">
+       .
+       <br/>
+       .
+       <br/>
+   </div>
+   <!-- Form page -->
+   <div class="featureSection">
+       <form>
+           <div class="details">
+
+               <input class="formBox-left" name="name" placeholder="Name" />
+               <input class="formBox-right" name="name" placeholder="Email"/>
+
+           </div>
+           <div class="details">
+               <input placeholder="Subject" class="subject">
+
+           </div>
+           <div class="details">
+            <textarea class="textArea"  placeholder="Subject" > </textarea>
+
+
+           </div>
+       </form>
+       <button class="button">Submit
+
+       </button>
+   
+  </div>
+<div  class="faq">
+    <!-- <div class="footerMargin"> -->
+
+      <div class="Footer">
+         <div class="footer-heading"><h1>Subscribe Form</h1></div>
+         <div class="footer-form">
+          <input class="footer-input" type="email" placeholder="Email Address"/>
+          <button class="footer-button" type="submit">Submit</button>
+         </div>
+      </div>
+
+      <!-- <div><h1 class="">Subscribe Form</h1></div>
+      <div class="">
+        <input class="" />
+        <button class="" type="submit">Submit</button>
+      </div> -->
+
+                  <div class="footerText">
+
+        <!-- © 2021 IntelliED -->
+    <!-- </div> -->
+        
+    </div>
+
+
+
+</div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="index.js" charset="utf-8"></script>
+</body>
+</html>
